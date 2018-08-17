@@ -20,16 +20,16 @@ class Queue():
         return len(self.items)
     #将队首的元素移除队列
     def dequeue(self):
-        self.items.pop()
+        return self.items.pop()
         
 if __name__ == '__main__':
     myQueue = Queue()
     myQueue.enqueue('x')
     myQueue.enqueue('y')
     myQueue.enqueue('z')
-    myQueue.dequeue()
-    myQueue.size()
-    myQueue.is_empty()
+    print(myQueue.dequeue())
+    print(myQueue.size())
+    print(myQueue.is_empty())
     
         
         
