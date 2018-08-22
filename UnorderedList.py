@@ -71,6 +71,19 @@ class UnorderedList(object):
         else:
             #这里修改previous会间接修改链表，相当于C++中的引用
             previous.setNext(current.getNext())
+            
+    def printList(self):
+        if self.isEmpty():
+            print('\nlist\'s length is 0')
+        else:
+            current = self.head
+            print('Head -->', current.getData(), end=' ')
+            while current.getNext() != None:
+                current = current.getNext()
+                print('-->', current.getData(), end=' ')
+            print('--> None')
+            
+        
                 
             
     
@@ -78,9 +91,11 @@ if __name__ == '__main__':
     myList = UnorderedList()
     myList.add(1)
     myList.add(2)
+    myList.add(5)
     myList.add(3)
-    myList.add(4)
     print(myList.size())
     print(myList.isEmpty())
-    print(myList.search(5))
+    print(myList.search(1))
+    myList.printList()
+    
     

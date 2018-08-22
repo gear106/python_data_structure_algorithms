@@ -92,6 +92,9 @@ class OrderedList(object):  #定义有序列表类
             
             
     def printList(self):
+        '''
+        print默认是打印一行，结尾加换行。end=' '意思是末尾不换行，加空格。
+        '''
         if self.isEmpty():
             print('list\'s length is 0')
         else:
