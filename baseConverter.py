@@ -7,7 +7,7 @@ Created on Wed Aug 22 21:39:26 2018
 
 from Stack import *
 
-def divideBy2(decNumber, base):
+def baseConverter(decNumber, base):
     '''
     采用不断除以base(2~16)求余数的方法将十进制数转化为base进制数,将所得余数入栈，再将余数出栈
     按出栈顺序即为所求二进制数
@@ -23,4 +23,4 @@ def divideBy2(decNumber, base):
         binString += digits[remstack.pop()]
     return binString
 
-print(divideBy2(16,16))
+print(baseConverter(16,16))
