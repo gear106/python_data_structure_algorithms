@@ -69,6 +69,7 @@ class UnorderedList(object):
         if previous == None:
             self.head = current.getNext()
         else:
+            #这里修改previous会间接修改链表，相当于C++中的引用
             previous.setNext(current.getNext())
                 
             
