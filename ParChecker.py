@@ -4,12 +4,13 @@ Created on Wed Aug 22 20:41:36 2018
 
 @author: GEAR
 """
-'''
-判断括号是否匹配
-'''
+
 from Stack import *
 
-def parChecker(String):
+def parChecker1(String):
+    '''
+    判断括号是否匹配
+    '''
     s = Stack()
     balanced = True
     index = 0
@@ -27,4 +28,37 @@ def parChecker(String):
         return True
     else:
         return False
-print(parChecker('(())'))
+print(parChecker1('(())'))
+
+def matches(start, stop):
+    '''
+    判断两个括号是否匹配,若是左边括号进栈，若是右边括号，若有对应左括号则出栈
+    '''
+    starts = '([{'
+    stops = ')]}'
+    return starts.index(start) == stops.index(stop)
+def parChecker2(String):
+    s = Stack()
+    balanced = True
+    index = 0
+    while index < len(String) and balanced:
+        symbol = String[index]
+        if symbol in '([{':
+            s.push(symbol)
+        else:
+            if s.is_empty():
+                balanced = False
+            else:
+                top = s.pop()
+                if not matches(top, symbol):
+                    balanced = False
+        index += 1
+    if balanced and s.is_empty():
+        return True
+    else:
+        return False
+
+print(parChecker2('([])'))
+
+    
+
