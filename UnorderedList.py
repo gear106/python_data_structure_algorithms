@@ -83,10 +83,19 @@ class UnorderedList(object):
                 print('-->', current.getData(), end=' ')
             print('--> None')
             
-        
-                
+    def append(self, item):
+        temp = Node(item)
+        if self.isEmpty():
+            temp.setNext(self.head)
+            self.head = temp
+        else:
+            current = self.head
+            while current.getNext() != None:
+                current = current.getNext()
+            current.setNext(temp)
             
     
+            
 if __name__ == '__main__':
     myList = UnorderedList()
     myList.add(1)
@@ -96,6 +105,10 @@ if __name__ == '__main__':
     print(myList.size())
     print(myList.isEmpty())
     print(myList.search(1))
+    myList.printList()
+    myList.append(7)
+    myList.printList()
+    myList.remove(7)
     myList.printList()
     
     

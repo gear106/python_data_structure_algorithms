@@ -15,10 +15,10 @@ def palchecker(aString):
     stillEqual = True
     
     while charDeque.size() > 1 and stillEqual:
-        if charDeque.removeFront() != charDeque.removeRear():
+        if (ord(charDeque.removeRear()) - ord(charDeque.removeFront())) > 2:
             stillEqual = False
     return stillEqual
 
 if __name__ == "__main__":
-    s = 'boobs'
+    s = '[()]'
     print(palchecker(s))
