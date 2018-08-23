@@ -9,7 +9,7 @@ from Stack import *
 
 def parChecker1(String):
     '''
-    判断括号是否匹配
+    判断括号是否匹配,采用stack数据结构来实现
     '''
     s = Stack()
     balanced = True
