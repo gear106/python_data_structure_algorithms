@@ -23,4 +23,4 @@ def baseConverter(decNumber, base):
         binString += digits[remstack.pop()]
     return binString
 
-print(baseConverter(16,16))
+print(baseConverter(10,16))
