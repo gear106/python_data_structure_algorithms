@@ -19,3 +19,5 @@ def sequentialSearch(alist, item):
 if __name__ == '__main__':
     testlsit = [1,2,4,5,6]
     print(sequentialSearch(testlsit, 7))
+    
+    
