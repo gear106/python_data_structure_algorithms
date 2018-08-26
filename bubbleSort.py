@@ -4,6 +4,9 @@ Created on Sun Aug 26 11:58:26 2018
 
 @author: GEAR
 """
+'''
+冒泡排序实现
+'''
 def bubbleSort(alist):
     for num in range(len(alist)-1, 0, -1):  #从最大的位置开始依次减小
         for i in range(num):
