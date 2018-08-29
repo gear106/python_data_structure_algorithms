@@ -75,7 +75,7 @@ class BinHeap(object):
     
     def buildHeap(self, alist):
         '''
-        将一个单列表转化为堆
+        将一个单列表转化为堆，若采用一个节点插入的方法，时间复杂度为nlog(n)
         '''
         i = len(alist) // 2 #从中间元素开始调整元素位置，时间复杂度：O(n)
         self.currentSize = len(alist)
