@@ -53,4 +53,9 @@ def evaluate(parseTree):
 
 pt = buildParseTree('( ( 10 + 5 ) * 3 )')
 print(evaluate(pt))  # 正确输出结果应为45
+
+
+
+
+
     
