@@ -48,11 +48,39 @@ def evaluate(parseTree):
     else:
         return parseTree.getRootVal()
     
+def postordereval(tree):
+    '''
+    采用后序遍历计算分析树
+    '''
+    opers = {'+':operator.add, '-':operator.sub, '*':operator.mul, '/':operator.truediv}
+    res1 = None
+    res2 = None
     
+    if tree:
+        res1 = postordereval(tree.getLeftChild())
+        res2 = postordereval(tree.getRightChild())
+        
+        if res1 and res2:
+            return opers[tree.getRootVal()](res1, res2)
+        else:
+            return tree.getRootVal()
+        
+def printexp(tree):
+    '''
+    采用中序遍历打印出树的结构
+    '''
+    sVal = ''
+    if tree:
+        sVal = '(' + printexp(tree.getLeftChild())
+        sVal += str(tree.getRootVal())
+        sVal += printexp(tree.getRightChild()) + ')'
+    return sVal
 
 
 pt = buildParseTree('( ( 10 + 5 ) * 3 )')
+print(printexp(pt))
 print(evaluate(pt))  # 正确输出结果应为45
+print(postordereval(pt))
 
 
 
