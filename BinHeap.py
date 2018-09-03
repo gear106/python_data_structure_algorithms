@@ -55,7 +55,7 @@ class BinHeap(object):
         '''
         while (i*2) <= self.currentSize:    #若当前左子节点位置小于列表总长度
             mc = self.minChild(i)   # 返回当前节点的最小子节点位置
-            if self.heapList[i] > self.heapList[mc]: #r若当前节点元素小于其最小子节点
+            if self.heapList[i] > self.heapList[mc]: #r若当前节点元素大于其最小子节点
                 temp = self.heapList[i]
                 self.heapList[i] = self.heapList[mc]
                 self.heapList[mc] = temp
