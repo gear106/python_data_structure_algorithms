@@ -28,7 +28,7 @@ def gapInsertionSort(alist, start, gap):
         
         
 if __name__ == '__main__':
-    test = [6,4,8,3,9,2]
+    test = [54,26,93,17,77,31,44,55,20]
     shellSort(test)
     print(test)
         

@@ -72,7 +72,7 @@ def quickSort2(alist, first, last):
     #左边排序
     quickSort2(alist, first, leftmark-1)
     #右边排序
-    quickSort2(alist, leftmark+1, last)
+    quickSort2(alist, rightmark+1, last)
     
     
 if __name__ == '__main__':
