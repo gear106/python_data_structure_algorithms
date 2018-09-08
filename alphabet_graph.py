@@ -14,8 +14,8 @@ def buildGraph(wordFile):
     for line in wfile:
         word = line[:-1]
         for i in range(len(word)):
-            bucket = word[:i] + '_' + word[i+1:]  #这里将字母装进桶
-            if bucket in d:
+            bucket = word[:i] + '_' + word[i+1:]  #这里将字母装进桶，buvket为字典的key
+            if bucket in d:     
                 d[bucket].append(word)
             else:
                 d[bucket] = [word]   #这里加括号是因为后边要在列表里添加元素

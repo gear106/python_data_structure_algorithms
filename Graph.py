@@ -11,9 +11,13 @@ Created on Fri Sep  7 20:42:05 2018
 '''
 
 class Vertex(object):
-    def __init__(self, key):
+    def __init__(self, key, color='white', distance=0, predvert=None):
         self.id = key
         self.connectedTo = {}
+        self.color = 'white'
+        self.distance = 0
+        self.predvert = None
+        
         
     def addNeighbor(self, nbr, weight=0):
         self.connectedTo[nbr] = weight
@@ -30,6 +34,26 @@ class Vertex(object):
     def getWeight(self, nbr):
         return self.connectedTo[nbr]
     
+    def getColor(self):
+        return self.color
+    
+    def setColor(self, new):
+        self.color = new
+        
+    def getDistance(self):
+        return self.distance
+    
+    def setDistance(self, new):
+        self.distance = new
+        
+    def getPred(self):
+        return self.predvert
+    
+    def setPred(self, key):
+        self.predvert = key
+        
+        
+        
 class Graph(object):
     def __init__(self):
         self.vertList = {}
