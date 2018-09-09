@@ -14,7 +14,7 @@ def bfs(g, start):
     start.setPred(None)   #父顶点
     
     vertQueue = Queue()
-    vertQueue.enqueue(start)    #向队尾插入一个新元素
+    vertQueue.enqueue(start)    #向队尾插入新元素
     while (vertQueue.size() > 0):
         currentVert = vertQueue.dequeue()   #将队首元素移出队列
         for nbr in currentVert.getConnections(): # nbr表示父顶点所连接的子顶点

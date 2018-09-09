@@ -85,7 +85,7 @@ class Graph(object):
         return self.vertList.keys()
     
     def __iter__(self):
-        return iter(self.vertList.values())
+        return iter(self.vertList.values())   #用来生成迭代器
     
     
 if __name__ == '__main__':
@@ -107,6 +107,9 @@ if __name__ == '__main__':
     for v in g:
         for w in v.getConnections():
             print('(%s, %s)'%(v.getId(), w.getId()))
+            
+    print(g.getVertex(0))
+    print(g.getVertices())
             
         
             
