@@ -4,18 +4,19 @@ def shellSort(alist):
         for start in range(gap):
             gapShellSort(alist, start, gap)
         gap = gap // 2
-        
-def gapShellSort(alist,start, gap):
+    
+def gapShellSort(alist, start, gap):
     for i in range(start+gap, len(alist), gap):
         currentvalue = alist[i]
         position = i
         while position >= gap and alist[position-gap] > currentvalue:
-            alist[position] = alist[position - gap]
+            alist[position] = alist[position-gap]
             position -= gap
         alist[position] = currentvalue
 
+
 def insertionSort(alist):
-    for i in range(1, len(alist)):
+    for i in range(len(alist)):
         currentvalue = alist[i]
         position = i
         while position > 0 and alist[position-1] > currentvalue:
@@ -29,18 +30,16 @@ def bubbleSort(alist):
             if alist[j] > alist[j+1]:
                 alist[j], alist[j+1] = alist[j+1], alist[j]
                 
-                
 def shortBubbleSort(alist):
-    pos = len(alist) - 1
     exchange = True
+    pos = len(alist) - 1
     while pos > 0 and exchange:
         exchange = False
         for i in range(pos):
             if alist[i] > alist[i+1]:
                 exchange = True
                 alist[i], alist[i+1] = alist[i+1], alist[i]
-        pos -= 1
-        
+                
 def selectionSort(alist):
     for i in range(len(alist)-1, 0, -1):
         maxid = 0
@@ -49,15 +48,16 @@ def selectionSort(alist):
                 maxid = j
         alist[i], alist[maxid] = alist[maxid], alist[i]
         
+        
 def mergeSort(alist):
     if len(alist) > 1:
         mid = len(alist) // 2
         left = alist[:mid]
         right = alist[mid:]
-        
+         
         mergeSort(left)
         mergeSort(right)
-        
+         
         i,j,k = 0,0,0
         while i < len(left) and j < len(right):
             if left[i] < right[j]:
@@ -72,19 +72,18 @@ def mergeSort(alist):
             alist[k] = left[i]
             i += 1
             k += 1
-        
         while j < len(right):
             alist[k] = right[j]
             j += 1
             k += 1
         
-
+                
 def quickSort(alist, first, last):
     left = first
     right = last
     if left >= right:
         return
-    
+
     pivot = alist[left]
     
     while left < right:
@@ -99,21 +98,9 @@ def quickSort(alist, first, last):
     quickSort(alist, first, left-1)
     quickSort(alist, left+1, last)
     
-
+    
+    
 def binarySearch(alist, item):
-    if len(alist) == 0:
-        return False
-    else:
-        mid = len(alist) // 2
-        if item == alist[mid]:
-            return True
-        else:
-            if item < alist[mid]:
-                return binarySearch(alist[:mid], item)
-            else:
-                return binarySearch(alist[mid+1:], item)
-            
-def binarySearch2(alist, item):
     left = 0
     right = len(alist) - 1
     found = False
@@ -122,33 +109,43 @@ def binarySearch2(alist, item):
         mid = (left + right) // 2
         if item == alist[mid]:
             found = True
-        else:
+        else:              
             if item < alist[mid]:
-                right = mid - 1
+                right = mid-1
             else:
-                left = mid + 1
+                left = mid+1
     return found
 
+def binarySearch2(alist, item):
+    if len(alist) == 0:
+        return False
+    else:
+        mid = len(alist) // 2
+        if item == alist[mid]:
+            return True
+        else:          
+            if item < alist[mid]:
+                return binarySearch2(alist[:mid], item)
+            else:
+                return binarySearch2(alist[mid+1:], item)
     
 def sequentialSearch(alist, item):
-    
     pos = 0
     found = False
     while pos < len(alist) and not found:
-        if item == alist[pos]:
+        if alist[pos] == item:
             found = True
         else:
             pos += 1
-
     return found
 
+
 def sequentialSearch2(alist, item):
-    pos = 0
+    pos = 0 
     found = False
     stop = False
-    
     while pos < len(alist) and not found and not stop:
-        if item == alist[pos]:
+        if alist[pos] == item:
             found = True
         else:
             if alist[pos] > item:
@@ -156,6 +153,12 @@ def sequentialSearch2(alist, item):
             else:
                 pos += 1
     return found
+        
+        
+            
+
+
+
 
 
 
@@ -192,5 +195,5 @@ if __name__ == '__main__':
     print('quick\n',test6)
     
     testlist = [0,1,3,4,5,6,8]
-    print(binarySearch2(testlist, 9))
-    print(sequentialSearch2(testlist, 4))
+    print(binarySearch2(testlist, 6))
+    print(sequentialSearch2(testlist, 8))
